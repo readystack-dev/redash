@@ -1,0 +1,22 @@
+# ReadyStack slice definition: chisel-releases (ubuntu-24.04) has no slice for libodbc2 (unixODBC's driver manager),
+# which redash's pyodbc links (chain 951's r6 image: `ldd pyodbc.cpython-313-x86_64-linux-gnu.so` lists libodbc.so.2).
+# Cut from Ubuntu's own libodbc2 .deb, as every canonical slice is; the format and the paths follow chisel-releases'
+# own library slices. Contents of libodbc2 2.3.12-1ubuntu0.24.04.1 (noble): /usr/lib/x86_64-linux-gnu/libodbc.so.2.0.0
+# with its .so.2 link, /usr/share/doc/libodbc2/{copyright,changelog.Debian.gz}; it depends on libc6 and libltdl7 (our
+# libltdl7 slice definition).
+package: libodbc2
+
+essential:
+  - libodbc2_copyright
+
+slices:
+  libs:
+    essential:
+      - libc6_libs
+      - libltdl7_libs
+    contents:
+      /usr/lib/*-linux-*/libodbc.so.2*:
+
+  copyright:
+    contents:
+      /usr/share/doc/libodbc2/copyright:

@@ -1,0 +1,9 @@
+{
+  "schema": "kitforge.source_tree_hash.v1",
+  "slug": "redash",
+  "repo": "https://github.com/getredash/redash",
+  "ref": "v26.9.0",
+  "commit": "42fdf9d4a0fdb83841130ab78f69899a224f281b",
+  "tree_listing_sha256": "973cb2459034cd07deb972d5e4ede590ec4baf788e37a7b13356be9f19233577",
+  "file_count": 1288
+}

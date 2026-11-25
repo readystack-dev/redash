@@ -1,0 +1,20 @@
+# ReadyStack slice definition: chisel-releases (ubuntu-24.04) has no slice for libltdl7, which unixODBC's libodbc.so.2
+# loads (redash's pyodbc, chain 951's r6 image: `ldd pyodbc.cpython-313-x86_64-linux-gnu.so` lists libodbc.so.2 and
+# libltdl.so.7). Cut from Ubuntu's own libltdl7 .deb, as every canonical slice is; the format and the paths follow
+# chisel-releases' own library slices. Contents of libltdl7 2.4.7-7build1 (noble):
+# /usr/lib/x86_64-linux-gnu/libltdl.so.7.3.2 with its .so.7 link, /usr/share/doc/libltdl7/{copyright,NEWS.gz,README,changelog.Debian.gz}.
+package: libltdl7
+
+essential:
+  - libltdl7_copyright
+
+slices:
+  libs:
+    essential:
+      - libc6_libs
+    contents:
+      /usr/lib/*-linux-*/libltdl.so.7*:
+
+  copyright:
+    contents:
+      /usr/share/doc/libltdl7/copyright:

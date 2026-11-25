@@ -1,0 +1,36 @@
+# Redash CVE remediation — post-install --upgrade floors (verdict fch=25, 13 pypi packages).
+# The ORM cluster (SQLAlchemy 1.3 / flask-sqlalchemy 2.5) is NOT flagged — left untouched.
+# Risky majors vetted by the kit boot test: Werkzeug 2->3 (capped <3.1 for Flask 2.3 compat),
+# urllib3 1->2, authlib 0.15->1.x.
+# Crypto: 50.x + pyOpenSSL 26.4. The pair MOVES TOGETHER and that is the point -- pyOpenSSL
+# 26.3 declares cryptography<50, so it WAS the ceiling holding cryptography at 49.x; 26.4.0
+# declares cryptography<51 and is the first release admitting 50. Raising cryptography
+# alone cannot resolve. homeassistant hit the identical ceiling the same day.
+authlib>=1.6.9
+click>=8.3.3
+cryptography>=50.0.0,<51
+httplib2>=0.32.0
+jaraco.context>=6.1.0
+Mako>=1.3.12
+pyasn1>=0.6.3
+PyJWT>=2.14.0,<3
+pyOpenSSL>=26.4.0,<27
+setuptools>=78.1.1,<81
+urllib3>=2.8.0,<3
+Werkzeug>=3.0.3,<3.1
+wheel>=0.46.2
+Flask-Login>=0.6.3
+Flask-WTF>=1.2.1
+# Added from chain 420's verdict. Both carry CEILINGS: upstream pins them exactly in
+# pyproject (RestrictedPython 8.1, sqlparse 0.5.0) and this file overrides with a floor,
+# so an unbounded floor could take a major version the app has never seen -- the
+# paperlessngx trap, where Grade A and bit-for-bit both pass while the app is dead.
+RestrictedPython>=8.4,<9
+sqlparse>=0.6.0,<0.7
+# Advisory published 2026-10-20 (G8's OSV cross-check flags it; Scout did not list it yet). certifi (uv.lock 2025.1.31,
+# requests' CA bundle): GHSA-6q48-6c7w-9gw2, CRITICAL, emSign roots with compromised intermediate CA keys, fixed in
+# 2026.10.19. pyproject's certifi>=2019.9.11 and every dependent (requests>=2023.5.7, snowflake-connector-python
+# >=2024.7.4, influxdb-client, sentry-sdk, httpx, httpcore, cmem-cmempy) are floors only. Date-versioned CA bundle with
+# no API, so this floor is the one line here without a ceiling.
+certifi>=2026.10.19
+joserfc>=1.7.5,<2   # GHSA-jpxq-7h8p-2q76: joserfc 1.7.2 -> 1.7.5 (scripts/cve-floor.py)

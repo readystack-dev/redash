@@ -1,0 +1,8 @@
+image_manifest_digest=sha256:a6e4f54c6e668de2218297d6784084885c47e7c17cb92b3bafddc0cd9bd09109
+config_digest=sha256:d55d9fc61fd03b9d0050f090dd3c183196dde2b195fe3cd92739013b5a2f84b6
+tag=readystack/redash:v26.9.0-CE-ubuntu24.04-r8
+probe_port=5000
+probe_path=/ping
+probe_timeout=300
+verify_boot=skip
+verify_boot_reason=this image needs db, redis (not part of this archive); boot it with your own services as the admin handbook describes

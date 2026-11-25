@@ -1,0 +1,66 @@
+{
+  "build_method": "source-rebuild-python",
+  "chain_id": 1013,
+  "dep_bumps": [],
+  "expected_residuals": [],
+  "images": [
+    {
+      "digest": "sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289",
+      "ref": "ubuntu:24.04",
+      "role": "builder"
+    },
+    {
+      "digest": "sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289",
+      "ref": "ubuntu:24.04",
+      "role": "base"
+    }
+  ],
+  "mod_replaces": [],
+  "runtime_base": {
+    "hand_kit": true,
+    "kind": "chisel",
+    "provides": [
+      "supervisord",
+      "supervisorctl",
+      "gunicorn",
+      "/usr/local/bin/entrypoint-aio.sh"
+    ],
+    "shell": true,
+    "slice_defs": [
+      "libltdl7",
+      "libodbc2"
+    ],
+    "slices": [
+      "libgcc-s1_libs",
+      "libstdc++6_libs",
+      "libodbc2_libs",
+      "libpam0g_libs",
+      "libaudit1_libs",
+      "libcap-ng0_libs",
+      "libcrypt1_libs"
+    ],
+    "tools": [
+      "bash",
+      "id"
+    ]
+  },
+  "schema": "kitforge.toolchain_lock.v1",
+  "slug": "redash",
+  "source": {
+    "builder_image": "ubuntu:24.04",
+    "commit": "42fdf9d4a0fdb83841130ab78f69899a224f281b",
+    "commit_epoch": 1790246112,
+    "python_runtime": {
+      "provider": "ubuntu-source",
+      "sha256": "abb0102e6d4ae027509bcb82327d9dd85515b44a3ba8ad538cfc5e9847029f68",
+      "version": "3.13.18"
+    },
+    "python_version": "3.13",
+    "ref": "v26.9.0",
+    "repo": "https://github.com/getredash/redash",
+    "source_date_epoch": 1794458806,
+    "source_date_epoch_basis": "release-cut",
+    "source_date_epoch_provenance": "the time release v26.9.0-CE-ubuntu24.04-r8 was cut (2026-11-12T04:46:46Z), by scripts/retarget.py --rev-bump: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit 42fdf9d4a0fd, dated 2026-09-24T10:35:12Z (source.commit_epoch)."
+  },
+  "version": "v26.9.0"
+}

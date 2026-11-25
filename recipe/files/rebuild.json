@@ -1,0 +1,36 @@
+{
+  "bases": [
+    {
+      "digest": "sha256:fb7cceb528b47141eccd9b60bf3cbd27d5ef5f8cf5b7d338bec866da495b50dc",
+      "layout": "bases/golang_1.27.4-bookworm_4fa7c968ba93.oci",
+      "ref": "golang:1.27.4-bookworm@sha256:4fa7c968ba93f1635670522dbb01a2c78150443e1385746924566079f36570ea"
+    },
+    {
+      "digest": "sha256:9a04f13b3f80ef056361e30868593b1cfd2279fe19e4081cb93a90bf56819d6a",
+      "layout": "bases/ubuntu_24.04_9c7f200c07e3.oci",
+      "ref": "ubuntu:24.04@sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289"
+    }
+  ],
+  "engine": {
+    "archive": "toolchain/buildkit.tar",
+    "image_digest": "sha256:e0e67ea9c4bb07bdef683e29f70f3b623d1eb9c82274a9ec04e6bb0511449fb0",
+    "kind": "buildkit",
+    "tag": "moby/buildkit:v0.31.2"
+  },
+  "inputs": {
+    "context": ".",
+    "dockerfile": "Dockerfile.offline.pinned",
+    "mtime_policy": "clamp",
+    "source_date_epoch": 1794458806,
+    "tree_hash": "sha256:6292a189fe0fca27492bbb637d7aa8d5e00c234b65dbf9023b6dd3fecb8268f0"
+  },
+  "probe": {
+    "skip": "this image needs db, redis (not part of this archive); boot it with your own services as the admin handbook describes"
+  },
+  "schema": "readystack-rebuild-bundle/v0.1",
+  "subject": {
+    "config_digest": "sha256:d55d9fc61fd03b9d0050f090dd3c183196dde2b195fe3cd92739013b5a2f84b6",
+    "image_manifest_digest": "sha256:a6e4f54c6e668de2218297d6784084885c47e7c17cb92b3bafddc0cd9bd09109",
+    "name": "docker.io/readystack/redash:v26.9.0-CE-ubuntu24.04-r8"
+  }
+}
