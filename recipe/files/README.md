@@ -1,14 +1,16 @@
-# Build kit for `readystack/redash:v26.9.0-CE-ubuntu24.04-r8`
+# Build kit for `readystack/redash:v26.9.0-CE-ubuntu24.04-r9`
 
-This archive rebuilds the linux/amd64 image `readystack/redash:v26.9.0-CE-ubuntu24.04-r8` from its own contents, with the network off, and checks the result against the image digest ReadyStack published, `sha256:a6e4f54c6e668de2218297d6784084885c47e7c17cb92b3bafddc0cd9bd09109` (also in `TARGET_DIGEST.txt`). It holds everything the build needs, not the image itself.
+This archive rebuilds the linux/amd64 image `readystack/redash:v26.9.0-CE-ubuntu24.04-r9` from its own contents, with the network off, and checks the result against the image digest ReadyStack published, `sha256:be72659ca516427f35f270ae1a6217a822bbb0a0b9bf3c501d6eba772651e154` (also in `TARGET_DIGEST.txt`). It holds everything the build needs, not the image itself.
+
+Every release of this kit, its recipe and its defect issues are published at https://github.com/readystack-dev/redash; the product page is https://readystack.dev/products/redash.
 
 ## Rebuild it
 
 You need linux/amd64 Docker with `buildx` 0.30 or later, `jq` and `tar` (docs/REBUILD.md lists the rest, if any, and the hardware ReadyStack used).
 
 ```
-tar -xpzf ReadyStack-redash-v26.9.0-CE-ubuntu24.04-r8.tar.gz    # -p keeps each file's mode
-cd v26.9.0-CE-ubuntu24.04-r8
+tar -xpzf ReadyStack-redash-v26.9.0-CE-ubuntu24.04-r9.tar.gz    # -p keeps each file's mode
+cd v26.9.0-CE-ubuntu24.04-r9
 ./BUILD_OFFLINE.sh            # builds with the network off, from this archive alone
 ./VERIFY_OFFLINE.sh           # compares the rebuilt digest with the published one, then checks the image
 ```
@@ -23,8 +25,8 @@ ReadyStack signs this archive's `rebuild.json` with its release key once the fin
 
 ```
 curl -fsSLo ../cosign.pub https://readystack.dev/keys/cosign.pub
-curl -fsSLo ../ReadyStack-redash-v26.9.0-CE-ubuntu24.04-r8.rebuild.json.sigstore https://readystack.dev/api/kit/redash/v26.9.0-CE-ubuntu24.04-r8/files/ReadyStack-redash-v26.9.0-CE-ubuntu24.04-r8.rebuild.json.sigstore
-python3 docs/rebuild-bundle/rebuild_bundle.py validate . --key ../cosign.pub --signature ../ReadyStack-redash-v26.9.0-CE-ubuntu24.04-r8.rebuild.json.sigstore
+curl -fsSLo ../ReadyStack-redash-v26.9.0-CE-ubuntu24.04-r9.rebuild.json.sigstore https://readystack.dev/api/kit/redash/v26.9.0-CE-ubuntu24.04-r9/files/ReadyStack-redash-v26.9.0-CE-ubuntu24.04-r9.rebuild.json.sigstore
+python3 docs/rebuild-bundle/rebuild_bundle.py validate . --key ../cosign.pub --signature ../ReadyStack-redash-v26.9.0-CE-ubuntu24.04-r9.rebuild.json.sigstore
 ```
 
 `validate` needs Python 3 and cosign. Without building anything it checks the signature over `rebuild.json`, every file's checksum, the tree hash over every file's path, mode and content, each base image layout's digest and the builder archive. `verify`, with the same arguments, also rebuilds with the builder's network egress blocked and exits 0 only when the rebuilt digest is the published one (docs/REBUILD.md).

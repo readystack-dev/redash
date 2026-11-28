@@ -1,6 +1,6 @@
 {
   "build_method": "source-rebuild-python",
-  "chain_id": 1013,
+  "chain_id": 1297,
   "dep_bumps": [],
   "expected_residuals": [],
   "images": [
@@ -58,9 +58,9 @@
     "python_version": "3.13",
     "ref": "v26.9.0",
     "repo": "https://github.com/getredash/redash",
-    "source_date_epoch": 1794458806,
+    "source_date_epoch": 1795644299,
     "source_date_epoch_basis": "release-cut",
-    "source_date_epoch_provenance": "the time release v26.9.0-CE-ubuntu24.04-r8 was cut (2026-11-12T04:46:46Z), by scripts/retarget.py --rev-bump: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit 42fdf9d4a0fd, dated 2026-09-24T10:35:12Z (source.commit_epoch)."
+    "source_date_epoch_provenance": "the time release v26.9.0-CE-ubuntu24.04-r9 was cut (2026-11-25T22:04:59Z), by scripts/rerelease-agenda.py: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit 42fdf9d4a0fd, dated 2026-09-24T10:35:12Z (source.commit_epoch)."
   },
   "version": "v26.9.0"
 }

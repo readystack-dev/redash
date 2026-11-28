@@ -1,6 +1,6 @@
-image_manifest_digest=sha256:a6e4f54c6e668de2218297d6784084885c47e7c17cb92b3bafddc0cd9bd09109
-config_digest=sha256:d55d9fc61fd03b9d0050f090dd3c183196dde2b195fe3cd92739013b5a2f84b6
-tag=readystack/redash:v26.9.0-CE-ubuntu24.04-r8
+image_manifest_digest=sha256:be72659ca516427f35f270ae1a6217a822bbb0a0b9bf3c501d6eba772651e154
+config_digest=sha256:c1affdfa9db2e5a549232a201a1ed1345c3e05525ad8e85a683055c3c0583045
+tag=readystack/redash:v26.9.0-CE-ubuntu24.04-r9
 probe_port=5000
 probe_path=/ping
 probe_timeout=300

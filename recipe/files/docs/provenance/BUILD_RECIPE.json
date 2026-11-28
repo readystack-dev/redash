@@ -1,7 +1,7 @@
 {
   "schema": "kitforge.build_recipe.v1",
   "slug": "redash",
-  "image": "readystack/redash:v26.9.0-CE-ubuntu24.04-r8",
+  "image": "readystack/redash:v26.9.0-CE-ubuntu24.04-r9",
   "build_method": "source-rebuild-python",
   "source": {
     "repo": "https://github.com/getredash/redash",
@@ -13,10 +13,10 @@
       "sha256": "abb0102e6d4ae027509bcb82327d9dd85515b44a3ba8ad538cfc5e9847029f68",
       "_note": "CPython 3.13.16 compiled from python.org's release tarball (sha256 from python.org's release API, scripts/cpython-pin.py) against Ubuntu 24.04's own libraries -- libssl3t64, libsqlite3-0, zlib1g, libexpat1, libffi8, liblzma5, libbz2-1.0, libuuid1, libzstd1, libncursesw6, libreadline8t64 -- which Ubuntu's security team maintains, the scan sees as debs, and apt upgrades fix (owner decision 2026-10-10, after python-build-standalone 20261009 was found to bundle SQLite 3.53.1 with two HIGH CVEs fixed upstream four months earlier). The vendor stage only fetches the tarball and the build toolchain's debs; the compile runs in the offline (--network=none) build, reproducibly (gen_dockerfile.cpython_build_cmd: SOURCE_DATE_EPOCH, no PGO/LTO, fixed --build triple and source path, stripped, checked-hash .pyc). Never built: _dbm, _gdbm, _tkinter (no Berkeley DB, GDBM or Tk); no test suite, idle, tkinter, turtledemo or static libpython in the image. mpdecimal is the copy in CPython's own source (noble has no libmpdec). Move the pin with scripts/cpython-pin.py --write for each CPython patch release."
     },
-    "_source_note": "BSD-2 tag v26.3.0 (latest GA 2026-03-02). Python >=3.13,<3.14 (pyproject). Deps via poetry export --only main -> pip into /opt/venv (poetry stays in the BUILDER's system site-packages, never the runtime). Frontend: client/dist NOT shipped in the tag -> node:18 throwaway stage (yarn 1.22 frozen; NODE_OPTIONS=--openssl-legacy-provider is set by upstream's own build script for old-webpack md4 on OpenSSL 3); runtime serves the static dist, NO node. RQ (not celery): worker with no args listens on all 6 queues \u2014 AIO-friendly. CVE CAUTION (recon): the ORM cluster (SQLAlchemy 1.3.24, flask-sqlalchemy 2.5.1) is pinned by upstream design (1.3->1.4 is breaking) \u2014 grind around it via constraints.txt floors on the safe deps (urllib3/redis/sentry-sdk/etc), never through it.",
+    "_source_note": "BSD-2 tag v26.9.0. Python >=3.13,<3.14 (pyproject). Deps via poetry export --only main -> pip into /opt/venv (poetry stays in the BUILDER's system site-packages, never the runtime). Frontend: client/dist NOT shipped in the tag -> node:18 throwaway stage (yarn 1.22 frozen; NODE_OPTIONS=--openssl-legacy-provider is set by upstream's own build script for old-webpack md4 on OpenSSL 3); runtime serves the static dist, NO node. RQ (not celery): worker with no args listens on all 6 queues \u2014 AIO-friendly. CVE CAUTION (recon): the ORM cluster (SQLAlchemy 1.3.24, flask-sqlalchemy 2.5.1) is pinned by upstream design (1.3->1.4 is breaking) \u2014 grind around it via constraints.txt floors on the safe deps (urllib3/redis/sentry-sdk/etc), never through it.",
     "builder_image": "ubuntu:24.04",
-    "source_date_epoch": 1794458806,
-    "source_date_epoch_provenance": "the time release v26.9.0-CE-ubuntu24.04-r8 was cut (2026-11-12T04:46:46Z), by scripts/retarget.py --rev-bump: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit 42fdf9d4a0fd, dated 2026-09-24T10:35:12Z (source.commit_epoch).",
+    "source_date_epoch": 1795644299,
+    "source_date_epoch_provenance": "the time release v26.9.0-CE-ubuntu24.04-r9 was cut (2026-11-25T22:04:59Z), by scripts/rerelease-agenda.py: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit 42fdf9d4a0fd, dated 2026-09-24T10:35:12Z (source.commit_epoch).",
     "commit": "42fdf9d4a0fdb83841130ab78f69899a224f281b",
     "source_date_epoch_basis": "release-cut",
     "commit_epoch": 1790246112

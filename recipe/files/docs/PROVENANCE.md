@@ -1,4 +1,4 @@
-# Provenance — Redash (`v26.9.0-CE-ubuntu24.04-r8`)
+# Provenance — Redash (`v26.9.0-CE-ubuntu24.04-r9`)
 
 Every item below is copied from a record in this archive; the record is named in brackets.
 
@@ -13,18 +13,18 @@ Every item below is copied from a record in this archive; the record is named in
 
 - Method: `source-rebuild-python`; base image `scratch + a chiselled Ubuntu 24.04 runtime (vendored/chisel/slices.txt, packages.tsv)`
 - Compiled with `--network=none` from vendored source, dependencies and base images; BuildKit pinned to `moby/buildkit:v0.31.2` (shipped in `toolchain/`).
-- SOURCE_DATE_EPOCH: `1794458806` [`SOURCE_DATE_EPOCH.txt`]
+- SOURCE_DATE_EPOCH: `1795644299` [`SOURCE_DATE_EPOCH.txt`]
 - Frozen inputs: [`docs/provenance/FREEZE_MANIFEST.json`], build recipe: [`docs/provenance/BUILD_RECIPE.json`].
 
 ## Output
 
-- Published image: `readystack/redash:v26.9.0-CE-ubuntu24.04-r8` — index digest `sha256:7a5124cf1c1847b8b7070ea4098c99bb41e2c1b07a1e9a009ea924ac8631fb5f` [`docs/provenance/LOCKED_DIGEST.txt`]
-- linux/amd64 image digest `sha256:a6e4f54c6e668de2218297d6784084885c47e7c17cb92b3bafddc0cd9bd09109` — reproduced from this archive before publishing [`docs/provenance/REPRO_VERIFICATION.json`].
+- Published image: `readystack/redash:v26.9.0-CE-ubuntu24.04-r9` — index digest `sha256:87904485d84d7510db37c4a2d9536c1fc5b3bf5462e3307f0aaa66c19a02f8ee` [`docs/provenance/LOCKED_DIGEST.txt`]
+- linux/amd64 image digest `sha256:be72659ca516427f35f270ae1a6217a822bbb0a0b9bf3c501d6eba772651e154` — reproduced from this archive before publishing [`docs/provenance/REPRO_VERIFICATION.json`].
 
 ## Attestations and signature
 
 - SBOM + SLSA provenance attached to the image: attached: an SPDX SBOM and SLSA v1 provenance [`docs/provenance/SCOUT_VERDICT.json`]
-- cosign signature by the ReadyStack release key: verified before publishing. Check it: `cosign verify --key https://readystack.dev/keys/cosign.pub readystack/redash:v26.9.0-CE-ubuntu24.04-r8`
+- cosign signature by the ReadyStack release key: verified before publishing. Check it: `cosign verify --key https://readystack.dev/keys/cosign.pub readystack/redash:v26.9.0-CE-ubuntu24.04-r9`
 
 ## Pinned inputs, and why
 
@@ -32,5 +32,5 @@ Every item below is copied from a record in this archive; the record is named in
 
 ## Build trail
 
-- How this release passed through the ReadyStack harness, record by record (every chain, drive, stage, review round, defect and check, each naming the record it is copied from): `ReadyStack-redash-v26.9.0-CE-ubuntu24.04-r8.trail.json`, published beside this archive and signed with the release key (`ReadyStack-redash-v26.9.0-CE-ubuntu24.04-r8.trail.json.sigstore`), and readable at https://readystack.dev/products/redash/trail/v26.9.0-CE-ubuntu24.04-r8.
+- How this release passed through the ReadyStack harness, record by record (every chain, drive, stage, review round, defect and check, each naming the record it is copied from): `ReadyStack-redash-v26.9.0-CE-ubuntu24.04-r9.trail.json`, published beside this archive and signed with the release key (`ReadyStack-redash-v26.9.0-CE-ubuntu24.04-r9.trail.json.sigstore`), and readable at https://readystack.dev/products/redash/trail/v26.9.0-CE-ubuntu24.04-r9.
 
